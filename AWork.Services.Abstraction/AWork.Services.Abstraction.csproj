@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AWork.Contracts\AWork.Contracts.csproj" />
+    <ProjectReference Include="..\AWork.Domain\AWork.Domain.csproj" />
+    <ProjectReference Include="..\AWork.Persistence\AWork.Persistence.csproj" />
+    <ProjectReference Include="..\AWork.Domain\AWork.Domain.csproj" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="11.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AWork.Contracts\AWork.Contracts.csproj" />
+  </ItemGroup>
+
+</Project>

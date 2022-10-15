@@ -1,0 +1,86 @@
+﻿@model AWork.Contracts.Dto.Purchasing.VendorForCreateDto
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="col-xxl">
+    <div class="card mb-4">
+        <div class="card-header d-flex align-items-center justify-content-between">
+            <h5 class="mb-0">Vendor</h5>
+        </div>
+        <div class="card-body">
+            <form asp-action="Create">
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">BUSSINESS ENTITY ID</label>
+                    <div class="col-sm-10">
+                        <select asp-for="BusinessEntityId" class="form-select" asp-items="ViewBag.BusinessEntityId"></select>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">ACCOUNT NUMBER</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-fullname2" class="input-group-text">
+                                <i class="bx bx-user"></i>
+                            </span>
+                            <input asp-for="AccountNumber" class="form-control" placeholder="AccountNumber" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-icon-default-company">VENDOR NAME</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-company2" class="input-group-text">
+                                <i class="bx bx-buildings"></i>
+                            </span>
+                            <input asp-for="Name" class="form-control" placeholder="Vendor Name" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 col-form-label" for="basic-icon-default-fullname">CREDIT RATING</label>
+                    <div class="col-sm-10">
+                        <input asp-for="CreditRating" type="range" class="form-range" min="0" max="5" id="formRange2" />
+                    </div>
+                </div>
+                <div class="row mb-3">
+                    <label class="col-sm-2 form-label" for="basic-icon-default-phone">PURCHASING WEB SERVICE URL</label>
+                    <div class="col-sm-10">
+                        <div class="input-group input-group-merge">
+                            <span id="basic-icon-default-phone2" class="input-group-text">
+                                <i class="bx bx-link"></i>
+                            </span>
+                            <input asp-for="PurchasingWebServiceUrl"
+                                   class="form-control"
+                                   placeholder="PurchasingWebServiceUrl" />
+                        </div>
+                    </div>
+                </div>
+                <div class="row justify-content-end">
+                    <div class="col-sm-10">
+                        @*<div class="form-check form-switch mb-2">
+                            <input asp-for="ActiveFlag" class="form-check-input" type="checkbox" value="true" id="flexSwitchCheckDefault"/>
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Set Active Vendor</label>
+                        </div>
+                        <div class="form-check form-switch mb-2">
+                            <input asp-for="PreferredVendorStatus" class="form-check-input" type="checkbox" value="@Model.PreferredVendorStatus" id="flexSwitchCheckDefault" />
+                            <label class="form-check-label" for="flexSwitchCheckDefault">Preferred Vendor Status</label>
+                        </div>*@
+                        <button type="submit" class="btn btn-primary">Save</button>
+                        <a class="btn btn-secondary" asp-action="Index">Back to List</a>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }

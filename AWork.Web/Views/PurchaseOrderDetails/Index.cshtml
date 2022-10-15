@@ -1,0 +1,65 @@
+﻿@model IEnumerable<AWork.Contracts.Dto.Purchasing.PurchaseOrderDetailsDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Purchase Order Vendors</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Product.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.UnitPrice)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.PurchaseOrder)
+            </th>
+            <th>
+                Product Vendor
+            </th>
+            <th>
+                Available Stock
+            </th>
+            @*<th>
+                @Html.DisplayNameFor(model => model.Vendor.Name)
+            </th>*@
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.UnitPrice)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.PurchaseOrderDetailId)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Product.ProductNumber)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StockedQty)
+            </td>
+            @*<td>
+                @Html.DisplayFor(modelItem => item.Vendor.Name)
+            </td>*@
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ id = item.PurchaseOrderDetailId}) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ id = item.PurchaseOrderDetailId }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ id = item.PurchaseOrderDetailId })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

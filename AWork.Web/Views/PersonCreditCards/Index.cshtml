@@ -1,0 +1,48 @@
+@model IEnumerable<AWork.Contracts.Dto.Sales.PersonCreditCard.PersonCreditCardDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.ModifiedDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BusinessEntity)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CreditCard)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ModifiedDate)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.BusinessEntity.FirstName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CreditCard.CardNumber)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.CreditCardId">Edit</a> |
+                    <a asp-action="Details" asp-route-id="@item.CreditCardId">Details</a> |
+                    <a asp-action="Delete" asp-route-id="@item.CreditCardId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
