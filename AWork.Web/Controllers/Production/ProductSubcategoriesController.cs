@@ -33,6 +33,15 @@ namespace AWork.Web.Controllers.Production
 
         }
 
+       /* public async Task<IActionResult> Index(int ?id)
+        {
+            var viewPaged = new SelectProductSubCategoryDto();
+            //viewPaged.ProductCategoryDto = await _productionServiceContext.ProductCategoryService.GetProcdCateById((int)id,false);
+
+            return View(viewPaged);
+            //viewPaged.ProductCategoryDto = await _productionServiceContext.ProductCategoryService.GetProcdCateById((int)id, false);
+        }
+*/
         // GET: ProductSubcategories
         public async Task<IActionResult> Index(int? id)
         {
@@ -144,19 +153,30 @@ namespace AWork.Web.Controllers.Production
         }
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create(IEnumerable<ProductSubCategoryForCreateDto> dto)
+        public async Task<IActionResult> Create(int ?id,ProductSubCategoryForCreateDto dto)
         {
-            if (ModelState.IsValid)
-            {
+            IList<ProductSubCategoryDto> dtos = new List<ProductSubCategoryDto>();
 
+            //loop
+
+            for(int i = 0; i < Request.Form.Count; i++)
+            {
+                var cateId = Request.Form["ProductCategoryId["+i+"]"];
+                var subCateName = Request.Form["Name["+i+"]"];
             }
-            return View();
+            if (id != null)
+            {
+                _productionServiceContext.ProductSubCategoryService.Insert(dto);
+            }
+            return View(dto);
         }
+
 
         public void Add(IEnumerable<ProductSubCategoryForCreateDto> dto)
         {
             foreach (ProductSubCategoryForCreateDto item in dto)
             {
+                
                 _productionServiceContext.ProductSubCategoryService.Insert(item);
             }
         }

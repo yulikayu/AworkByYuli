@@ -9,7 +9,7 @@ namespace AWork.Contracts.Dto.Production
 {
     public class SelectProductSubCategoryDto
     {
-       public ProductCategory ProductCategoryDto { get; set; }
+       public ProductCategoryDto ProductCategoryDto { get; set; }
        public ProductSubCategoryDto  ProductSubCategoryDto { get; set; }
     }
 }
